@@ -16,7 +16,7 @@ public class VaultCard {
     private String lastFourDigits;
 
     @Column(nullable = false, length = 100)
-    private String bin;
+    private String bin; // first 6 digits of the card
 
     @Column(nullable = false)
     private byte[] encryptedDek;
