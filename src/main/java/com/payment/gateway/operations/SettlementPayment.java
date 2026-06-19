@@ -11,7 +11,7 @@ public class SettlementPayment {
     private SettlementPaymentId settlementPaymentId;
 
     //NTC
-    @MapsId()
+    @MapsId("settlementId")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "settlement_id")
     private Settlement settlement;
