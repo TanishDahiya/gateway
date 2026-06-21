@@ -1,0 +1,10 @@
+package com.payment.gateway.common.enums;
+
+public enum ErrorCode {
+    MERCHANT_ALREADY_EXISTS,
+    RESOURCE_NOT_FOUND,
+    VALIDATION_FAILED,
+    INTERNAL_SERVER_ERROR,
+    MERCHANT_NOT_FOUND,
+    KEY_NOT_FOUND
+}

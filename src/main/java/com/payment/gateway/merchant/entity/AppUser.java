@@ -2,11 +2,17 @@ package com.payment.gateway.merchant.entity;
 
 import com.payment.gateway.common.enums.UserRole;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "app_user")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class AppUser {
 
     @Id

@@ -23,7 +23,7 @@ public class Merchant {
     private String name;
     @Column(unique = true, nullable = false, length = 200)
     private String email;
-    @Column(nullable = false,length = 12)
+    @Column(length = 12)
     private String contactNumber;
     @Column(length = 50)
     @Enumerated(EnumType.STRING)
