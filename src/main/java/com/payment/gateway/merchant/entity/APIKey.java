@@ -2,12 +2,19 @@ package com.payment.gateway.merchant.entity;
 
 import com.payment.gateway.common.enums.Environment;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Table(name = "api_key")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class APIKey {
 
     @Id
@@ -20,10 +27,13 @@ public class APIKey {
     private String keyId;
     @Column(nullable = false, length = 200)
     private String keySecretHash;
+    @Column(length = 200)
+    private String prevKeySecretHash;
     @Column(nullable = false, length = 10)
     @Enumerated(EnumType.STRING)
     private Environment environment;
     @Column(nullable = false)
+    @Builder.Default
     private boolean enabled = true;
 
     private LocalDateTime createdAt;
