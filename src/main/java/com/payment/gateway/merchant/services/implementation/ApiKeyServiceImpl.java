@@ -97,6 +97,7 @@ public class ApiKeyServiceImpl implements ApiKeyService {
        APIKey apiKey = apiKeyRepository.findByIdAndMerchantId(keyId,merchantId)
                .orElseThrow(() -> new ResourceNotFoundException(ErrorCode.KEY_NOT_FOUND, "Key not found : " + keyId));
 
+       if(!apiKey.isEnabled()) throw new RuntimeException("Cannot rotate a disabled API key");
        apiKey.setPrevKeySecretHash(apiKey.getKeySecretHash());
        String secretKey = ApiKeyGenerator.generateSecretKey(apiKeyCreationRequest.environment());
        apiKey.setKeySecretHash(secretKey);

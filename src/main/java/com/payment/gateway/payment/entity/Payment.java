@@ -19,10 +19,11 @@ public class Payment {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "order_id", nullable = false)
     private OrderRecord orderRecord;
 
     @Column(nullable = false)
-    private UUID merchant_id;
+    private UUID merchantId;
 
     @Embedded
     private Money amount;
@@ -51,6 +52,8 @@ public class Payment {
 
     @Column(length = 255)
     private String errorDescription;
+
+    private Long refundAmountPaise;
 
     private LocalDateTime createdAt;
 
