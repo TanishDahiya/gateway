@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import java.util.UUID;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "idx_webhook_merchant_id",columnList = "merchant_id, enabled")
+})
 public class MerchantWebHookConfig {
 
     @Id
