@@ -1,5 +1,6 @@
 package com.payment.gateway.merchant.entity;
 
+import com.payment.gateway.common.entity.AuditEntitySuper;
 import com.payment.gateway.common.enums.Environment;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -17,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class APIKey {
+public class APIKey extends AuditEntitySuper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -38,8 +39,8 @@ public class APIKey {
     @Builder.Default
     private boolean enabled = true;
 
-    private LocalDateTime createdAt;
     private LocalDateTime rotatedAt;
+
     private LocalDateTime gracePeriodExpires;
 
 }

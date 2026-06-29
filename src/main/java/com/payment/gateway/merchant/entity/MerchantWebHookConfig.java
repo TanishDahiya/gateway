@@ -1,5 +1,6 @@
 package com.payment.gateway.merchant.entity;
 
+import com.payment.gateway.common.entity.AuditEntitySuper;
 import com.payment.gateway.common.enums.UserRole;
 import jakarta.persistence.*;
 
@@ -9,7 +10,7 @@ import java.util.UUID;
 @Table(indexes = {
         @Index(name = "idx_webhook_merchant_id",columnList = "merchant_id, enabled")
 })
-public class MerchantWebHookConfig {
+public class MerchantWebHookConfig extends AuditEntitySuper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

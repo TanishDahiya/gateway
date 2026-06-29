@@ -1,5 +1,6 @@
 package com.payment.gateway.payment.entity;
 
+import com.payment.gateway.common.entity.AuditEntitySuper;
 import com.payment.gateway.common.entity.Money;
 import com.payment.gateway.common.enums.OrderStatus;
 import jakarta.persistence.*;
@@ -21,7 +22,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class OrderRecord {
+public class OrderRecord extends AuditEntitySuper {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;

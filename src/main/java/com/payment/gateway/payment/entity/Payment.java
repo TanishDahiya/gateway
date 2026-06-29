@@ -1,5 +1,6 @@
 package com.payment.gateway.payment.entity;
 
+import com.payment.gateway.common.entity.AuditEntitySuper;
 import com.payment.gateway.common.entity.Money;
 import com.payment.gateway.common.enums.PaymentMethod;
 import com.payment.gateway.common.enums.PaymentStatus;
@@ -16,7 +17,7 @@ import java.util.UUID;
         @Index(name = "idx_payment_order_id", columnList = "order_id"),
         @Index(name = "idx_payment_merchant_id",columnList = "merchant_id")
 })
-public class Payment {
+public class Payment extends AuditEntitySuper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -58,8 +59,6 @@ public class Payment {
     private String errorDescription;
 
     private Long refundAmountPaise;
-
-    private LocalDateTime createdAt;
 
     private LocalDateTime authorizeAt;
 

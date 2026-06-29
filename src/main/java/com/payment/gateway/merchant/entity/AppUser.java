@@ -1,5 +1,6 @@
 package com.payment.gateway.merchant.entity;
 
+import com.payment.gateway.common.entity.AuditEntitySuper;
 import com.payment.gateway.common.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AppUser {
+public class AppUser extends AuditEntitySuper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

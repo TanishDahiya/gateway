@@ -1,5 +1,6 @@
 package com.payment.gateway.merchant.entity;
 
+import com.payment.gateway.common.entity.AuditEntitySuper;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -11,7 +12,7 @@ import java.util.UUID;
         @Index(name = "idx_customer_merchant_id",columnList = "merchant_id"),
         @Index(name = "idx_customer_email",columnList = "email")
 })
-public class Customer {
+public class Customer extends AuditEntitySuper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -28,8 +29,6 @@ public class Customer {
     @JoinColumn(name = "merchant_id",nullable = false)
     private Merchant merchant;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
     private LocalDateTime deletedAt;
 
 
