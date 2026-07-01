@@ -5,6 +5,7 @@ import com.payment.gateway.common.entity.Money;
 import com.payment.gateway.common.enums.PaymentMethod;
 import com.payment.gateway.common.enums.PaymentStatus;
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -17,6 +18,11 @@ import java.util.UUID;
         @Index(name = "idx_payment_order_id", columnList = "order_id"),
         @Index(name = "idx_payment_merchant_id",columnList = "merchant_id")
 })
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Payment extends AuditEntitySuper {
 
     @Id

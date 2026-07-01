@@ -2,6 +2,7 @@ package com.payment.gateway.payment.config;
 
 
 import com.payment.gateway.payment.dto.response.OrderRecordResponse;
+import com.payment.gateway.payment.dto.request.PaymentGatewayRequest;
 import com.payment.gateway.payment.dto.response.PaymentResponse;
 import com.payment.gateway.payment.entity.OrderRecord;
 import com.payment.gateway.payment.entity.Payment;
@@ -17,4 +18,6 @@ public interface PaymentMapper {
     PaymentResponse toPaymentResponse(Payment payment);
 
     List<PaymentResponse> toPaymentListResponse(List<Payment> payment);
+
+    PaymentGatewayRequest toPaymentGatewayRequest(Payment payment);
 }
